@@ -1,10 +1,10 @@
-# https://www.acmicpc.net/problem/9095
-# [백준/파이썬] 9005번 1, 2, 3 더하기
-# https://blog.naver.com/kut_da_92/222737682125
+# [백준/파이썬] 9005번 1, 2, 3 더하기 
+# 문제 핵심 요약: DP 응용문제
 
 for tc in range(int(input())):
     n = int(input())
 
+    # 1,2,3의 경우는 경우의 수를 세어서 출력 숫자를 지정해준다
     if n == 1:
         print(1)
         
@@ -12,8 +12,9 @@ for tc in range(int(input())):
         print(2)
         
     elif n == 3:
-        print(4)
-        
+        print(4) 
+
+    # 4부터는 규칙을 찾아 점화식으로 이용한다.
     elif n >= 4:
         dp = [0] * (n+1)
         dp[1] = 1
@@ -24,6 +25,7 @@ for tc in range(int(input())):
             dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
             
         print(dp[n])
+
 
 ''''
 DP의 큰 특징인 "점화식"을 이용하는 문제였다.
